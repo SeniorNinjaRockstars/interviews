@@ -1,0 +1,5 @@
+.navigation > a {
+  color: var(--text-color-primary);
+  margin-right: 50px;
+  text-decoration: none;
+}
