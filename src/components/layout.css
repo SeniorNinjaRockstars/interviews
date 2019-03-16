@@ -1,2 +1,10 @@
 body {
+  --background-color-primary: #000;
+  --background-color-secondary: #006;
+
+  --text-color-primary: #fff;
+  --text-color-secondary: #aaa;
+
+  background: var(--background-color-primary);
+  color: var(--text-color-primary);
 }
