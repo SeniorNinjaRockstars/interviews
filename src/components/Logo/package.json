@@ -1,0 +1,6 @@
+{
+  "name": "@interit/logo",
+  "version": "0.0.1",
+  "description": "Logo component of interit application",
+  "main": "Logo.js"
+}

@@ -6,17 +6,28 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 import Tabs from "../components/Tabs"
 import Main from "../components/Main"
-import Badge from "../components/Badge/Badge"
-import Card from "../components/Card/Card"
+import Badge from "../components/Badge/Badge";
+import Card from "../components/Card/Card";
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <main>
-      <h1>How well do you know your C++?</h1>
-      <p>Inteit lets you browse thousends of technical IT questions</p>
-      <Link to="browse">Browse questions</Link>
-    </main>
+    <h1>Browse questions</h1>
+    <Tabs />
+    <Main>
+      <p>23 questions</p>
+      <Badge text="JavaScript" />
+      <Badge text="Python" />
+      <Badge text="PHP" />
+      
+      <Card>
+        Hello world
+      </Card>
+
+      <Card>
+        Lorem ipsum
+      </Card>
+    </Main>
   </Layout>
 )
 
