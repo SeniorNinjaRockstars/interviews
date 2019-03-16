@@ -1,0 +1,11 @@
+.card {
+  border: 2px solid var(--text-color-secondary);
+  border-radius: 20px;
+  color: var(--text-color-primary);
+  padding: 30px;
+}
+
+.card--meta {
+  color: var(--text-color-secondary);
+  font-weight: 700;
+}
