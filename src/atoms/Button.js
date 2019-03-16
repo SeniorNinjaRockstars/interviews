@@ -1,13 +1,13 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 const Button = styled.button`
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  border: 0;
-  border-radius: 100px;
   background: transparent;
   text-transform: uppercase;
+  border-radius: 100px;
+  border: ${({ theme }) => theme.size.border.base} solid ${({ theme }) => theme.color.accent.primary};
   font-weight: ${({ theme }) => theme.font.weight.bold};
   font-size: ${({ theme }) => theme.font.size.label.base};
   line-height: ${({ theme }) => theme.font.lineHeight.tiny};
@@ -28,8 +28,8 @@ const Button = styled.button`
     font-size: ${theme.font.size.label.secondary};
   `};
 
-  ${({ large, theme }) =>
-    large &&
+  ${({ primary, theme }) =>
+    primary &&
     css`
       max-width: 20em;
       min-width: 8em;

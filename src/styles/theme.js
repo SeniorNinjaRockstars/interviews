@@ -74,7 +74,6 @@ const theme = {
   size: {
     border: {
       base: "2px",
-      thin: "1px"
     },
     borderRadius: "24px",
   },
