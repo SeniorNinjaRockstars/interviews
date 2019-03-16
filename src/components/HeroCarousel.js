@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-import { Link } from "gatsby"
+import React from "react"
 import PropTypes from "prop-types"
 
 import Container from "../atoms/Container"
