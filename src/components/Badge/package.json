@@ -1,6 +1,0 @@
-{
-  "name": "@interit/badge",
-  "version": "0.0.1",
-  "description": "Badge component of interit application",
-  "main": "Badge.js"
-}

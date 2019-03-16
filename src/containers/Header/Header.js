@@ -1,13 +1,11 @@
 import React from "react"
 
-import Logo from "../Logo"
+import Logo from "../../atoms/Logo"
 import Navigation from "../Navigation"
-
-import { header } from "./Header.module.css"
 
 function Header() {
   return (
-    <header className={header}>
+    <header>
       <Logo />
       <Navigation />
     </header>

@@ -1,11 +1,9 @@
 import React from "react"
 import { Link } from "gatsby";
 
-import { tabs } from "./Tabs.module.css";
-
 function Tabs() {
   return (
-    <nav className={tabs}>
+    <nav>
       <Link to="/browse">All levels</Link>
       <Link to="/browse/junior">Junior</Link>
       <Link to="/browse/regular">Regular</Link>
