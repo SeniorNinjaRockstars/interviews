@@ -11,7 +11,7 @@ const Button = styled.button`
   font-weight: ${({ theme }) => theme.font.weight.bold};
   font-size: ${({ theme }) => theme.font.size.label.base};
   line-height: ${({ theme }) => theme.font.lineHeight.tiny};
-  color: ${({ theme }) => theme.color.text.base};
+  color: ${({ theme }) => theme.color.text.primary};
   max-width: 12em;
   min-width: 6em;
   padding: 0.75rem 2rem;
