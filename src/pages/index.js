@@ -10,15 +10,11 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <main>
-      <HeroCarousel
-        staticContent={(
-          <>
-            <h1>How well do you know your C++?</h1>
-            <p>Inteit lets you browse thousends of technical IT questions</p>
-            <Button as={Link} to="browse" primary>Browse questions</Button>
-          </>
-        )}
-      />
+      <HeroCarousel>
+        <h1>How well do you know your C++?</h1>
+        <p>Inteit lets you browse thousends of technical IT questions</p>
+        <Button as={Link} to="browse" primary>Browse questions</Button>
+      </HeroCarousel>
     </main>
   </Layout>
 )

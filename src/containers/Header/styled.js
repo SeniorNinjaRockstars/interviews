@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.header`
+export const HeaderWrapper = styled.header`
   padding: 1rem 0;
 `;
 
-export const Content = styled.div`
+export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
 

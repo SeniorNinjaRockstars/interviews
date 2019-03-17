@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 import MenuButton from "../../components/MenuButton"
 
-import { Overlay, Nav, Wrapper, List, MainNavLink } from './styled.js'
+import { Overlay, Nav, NavWrapper, NavList, MainNavLink } from './styled.js'
 
 const Navigation = () => {
   const [menuState, setMenuState] = useState(false)
@@ -15,8 +15,8 @@ const Navigation = () => {
   return (
     <>
       <Nav isMenuOpened={menuState}>
-        <Wrapper isMenuOpened={menuState}>
-          <List>
+        <NavWrapper isMenuOpened={menuState}>
+          <NavList>
             <li>
               <MainNavLink as={Link} to="/browse" onClick={onLinkClick}>
                 Browse
@@ -32,8 +32,8 @@ const Navigation = () => {
                 Submit
               </MainNavLink>
             </li>
-          </List>
-        </Wrapper>
+          </NavList>
+        </NavWrapper>
       </Nav>
       <MenuButton onClick={onMenuClick} isMenuOpened={menuState} />
       <Overlay isVisible={menuState} onClick={onOverlayClick} />

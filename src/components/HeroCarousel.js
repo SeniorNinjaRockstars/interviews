@@ -3,19 +3,19 @@ import PropTypes from "prop-types"
 
 import Container from "../atoms/Container"
 
-const HeroCarousel = ({ staticContent, dynamicList }) => (
+const HeroCarousel = ({ children, dynamicList }) => (
   <Container>
-    {staticContent}
+    {children}
   </Container>
 )
 
 HeroCarousel.defaultProps = {
-  staticContent: null,
+  children: null,
   dynamicList: [],
 }
 
 HeroCarousel.propTypes = {
-  staticContent: PropTypes.node,
+  children: PropTypes.node,
   dynamicList: PropTypes.array,
 }
 

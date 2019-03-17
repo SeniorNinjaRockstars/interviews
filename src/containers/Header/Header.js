@@ -5,20 +5,20 @@ import Logo from "../../atoms/Logo"
 import Container from "../../atoms/Container"
 import Navigation from "../Navigation"
 
-import { Wrapper, Content } from "./styled.js"
+import { HeaderWrapper, HeaderContent } from "./styled.js"
 
 function Header() {
   return (
-    <Wrapper>
+    <HeaderWrapper>
       <Container>
-        <Content>
+        <HeaderContent>
           <Link to="/">
             <Logo />
           </Link>
           <Navigation />
-        </Content>
+        </HeaderContent>
       </Container>
-    </Wrapper>
+    </HeaderWrapper>
   )
 }
 

@@ -58,7 +58,7 @@ export const MainNavLink = styled(NavLink)`
   margin-right: 3rem;
 `;
 
-export const Wrapper = styled.div`
+export const NavWrapper = styled.div`
   display: flex;
 
   ${({ theme }) => theme.media.tablet`
@@ -74,7 +74,7 @@ export const Wrapper = styled.div`
   `};
 `;
 
-export const List = styled.ul`
+export const NavList = styled.ul`
   list-style-type: none;
   padding: 0;
   margin: 0;
