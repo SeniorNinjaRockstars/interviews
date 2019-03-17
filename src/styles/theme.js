@@ -35,7 +35,7 @@ const theme = {
       primary: "#FFF",
       secondary: "rgba(255, 255, 255, 0.75)",
       tertiary: "rgba(255, 255, 255, 0.5)",
-      base: "#FFF",
+      base: "rgba(255, 255, 255, 0.75)",
     },
     elements: {
     },
@@ -47,7 +47,7 @@ const theme = {
     size: {
       base: "16px",
       heading: {
-        primary: "4.5rem",
+        primary: "4rem",
         secondary: "3rem",
         tertiary: "2rem",
         base: "1rem"

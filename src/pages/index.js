@@ -11,8 +11,7 @@ const IndexPage = () => (
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <main>
       <HeroCarousel>
-        <h1>How well do you know your C++?</h1>
-        <p>Inteit lets you browse thousends of technical IT questions</p>
+        <p>Interit lets you browse thousands of technical IT questions knowledge of will help you land the job you've always been dreaming of.</p>
         <Button as={Link} to="browse" primary>Browse questions</Button>
       </HeroCarousel>
     </main>
