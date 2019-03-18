@@ -4,6 +4,7 @@ import styled from "styled-components"
 
 import Container from "../atoms/Container"
 import AnimatedTitle from "./AnimatedTitle"
+import AnimatedSVG from "./AnimatedSVG"
 
 const InnerContainer = styled.div`
   margin: 120px 16.667%;
@@ -23,12 +24,18 @@ const ContentWrapper = styled.div`
   }
 `
 
-const Image = styled.img`
+const ImageWrapper = styled.div`
+  box-sizing: border-box;
   width: 50%;
   position: absolute;
   right: 0;
   top: 0;
   z-index: -1;
+  padding-left: 20px;
+
+  svg {
+    width: 100%;
+  }
 `
 
 class HeroCarousel extends Component {
@@ -59,11 +66,17 @@ class HeroCarousel extends Component {
             as="h1"
             text={title}
             duration={duration}
-          />
+            />
           <ContentWrapper>
             {children}
           </ContentWrapper>
-          <Image src={image} />
+          <ImageWrapper>
+            <AnimatedSVG
+              key={title}
+              image={image}
+              duration={duration}
+            />
+          </ImageWrapper>
         </InnerContainer>
       </Container>
     )

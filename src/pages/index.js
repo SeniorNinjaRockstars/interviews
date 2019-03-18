@@ -6,9 +6,9 @@ import HeroCarousel from "../components/HeroCarousel"
 import Layout from "../containers/Layout"
 import SEO from "../containers/SEO"
 
-import imageJS from "../images/js.svg"
-import imagePython from "../images/python.svg"
-import imageCPlusPlus from "../images/cplusplus.svg"
+import ImageJS from "../images/js.svg"
+import ImagePython from "../images/python.svg"
+import ImageCPlusPlus from "../images/cplusplus.svg"
 
 const IndexPage = () => (
   <Layout>
@@ -18,15 +18,15 @@ const IndexPage = () => (
         dynamicList={[
           {
             title: "How well do you know your JavaScript?",
-            image: imageJS
+            image: ImageJS
           },
           {
             title: "How well do you know your Python?",
-            image: imagePython
+            image: ImagePython
           },
           {
             title: "How well do you know your C++?",
-            image: imageCPlusPlus
+            image: ImageCPlusPlus
           }
         ]}
         duration={8000}
