@@ -4,4 +4,13 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
+const path = require("path")
+
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions
+
+  createPage({
+    path: "browse",
+    component: path.resolve(`src/templates/index.js`),
+  })
+}

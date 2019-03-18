@@ -72,3 +72,5 @@ lambda
 
 .env.development
 .env.production
+
+firebase.json

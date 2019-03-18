@@ -1,34 +1,67 @@
 import React from "react"
-import { Link } from "gatsby"
+import PropTypes from "prop-types"
+import { graphql } from "gatsby"
+import dayjs from "dayjs"
+import 'dayjs/locale/pl'
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
-import Tabs from "../components/Tabs"
-import Main from "../components/Main"
-import Badge from "../components/Badge/Badge";
-import Card from "../components/Card/Card";
+dayjs.locale('pl')
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+const IndexPageTemplate = ({ questions }) => (
+  <div>
     <h1>Browse questions</h1>
-    <Tabs />
-    <Main>
-      <p>23 questions</p>
-      <Badge text="JavaScript" />
-      <Badge text="Python" />
-      <Badge text="PHP" />
-      
-      <Card>
-        Hello world
-      </Card>
-
-      <Card>
-        Lorem ipsum
-      </Card>
-    </Main>
-  </Layout>
+    {questions.map(question => (
+      <>
+        <pre>{JSON.stringify(question)}</pre>
+        <p>
+          {dayjs(question.created_at).locale('pl').format("DD MMMM")}
+        </p>
+      </>
+    ))}
+  </div>
 )
+
+const IndexPage = ({ data }) => {
+  const questions = data.allQuestions.edges.map(edge => edge.node)
+
+  return (
+    <div>
+      <IndexPageTemplate questions={questions} />
+    </div>
+  )
+}
+
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    allQuestions: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            text: PropTypes.string,
+            category: PropTypes.string,
+            level: PropTypes.string,
+            created_at: PropTypes.number,
+            published: PropTypes.bool,
+          }),
+        })
+      ),
+    }),
+  }),
+}
+
+export const questionsQuery = graphql`
+  query IndexPage {
+    allQuestions {
+      edges {
+        node {
+          text
+          category
+          level
+          created_at
+          published
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
