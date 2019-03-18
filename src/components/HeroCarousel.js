@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import Container from "../atoms/Container"
+import Animation from "./Animation"
 import AnimatedTitle from "./AnimatedTitle"
 import AnimatedSVG from "./AnimatedSVG"
 
@@ -68,7 +69,9 @@ class HeroCarousel extends Component {
             duration={duration}
             />
           <ContentWrapper>
-            {children}
+            <Animation type="fade" delay={0.8}>
+              {children}
+            </Animation>
           </ContentWrapper>
           <ImageWrapper>
             <AnimatedSVG
