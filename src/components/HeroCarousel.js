@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import Container from "../atoms/Container"
-import Heading from "../atoms/Heading"
+import AnimatedTitle from "./AnimatedTitle"
 
 const InnerContainer = styled.div`
   margin: 120px 16.667%;
@@ -21,11 +21,6 @@ const ContentWrapper = styled.div`
   p {
     margin-bottom: 2rem;
   }
-`
-
-const PageTitle = styled(Heading)`
-  font-size: ${({ theme }) => theme.font.size.heading.primary};
-  margin: 0 0 2rem;
 `
 
 const Image = styled.img`
@@ -49,18 +44,22 @@ class HeroCarousel extends Component {
     const itemsNum = this.props.dynamicList.length
     setInterval(() => this.setState({
       index: (this.state.index + 1) % itemsNum 
-    }), 8000)
+    }), this.props.duration)
   }
 
   render() {
-    const { children, dynamicList } = this.props
+    const { children, dynamicList, duration } = this.props
     const { index } = this.state
     const { title, image } = dynamicList[index]
 
     return (
       <Container>
         <InnerContainer>
-          <PageTitle>{title}</PageTitle>
+          <AnimatedTitle 
+            as="h1"
+            text={title}
+            duration={duration}
+          />
           <ContentWrapper>
             {children}
           </ContentWrapper>

@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: ${({ theme }) => theme.font.weight.base};
     color: ${({ theme }) => theme.color.text.base};
     background: ${({ theme }) => theme.color.background.base};
+    margin: 0;
   }
 
   img {
