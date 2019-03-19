@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 
-const Button = styled.button`
+const ButtonWrapper = styled.button`
   display: none;
   background: none;
   border: 0;
@@ -26,7 +26,7 @@ const Button = styled.button`
   `};
 `;
 
-const Inner = styled.span`
+const HamburgerMenuIcon = styled.span`
   &,
   &::before,
   &::after {
@@ -77,9 +77,9 @@ const Inner = styled.span`
 `
 
 const MenuButton = ({ onClick, isMenuOpened }) => (
-  <Button onClick={onClick}>
-    <Inner isMenuOpened={isMenuOpened} />
-  </Button>
+  <ButtonWrapper onClick={onClick}>
+    <HamburgerMenuIcon isMenuOpened={isMenuOpened} />
+  </ButtonWrapper>
 )
 
 MenuButton.propTypes = {

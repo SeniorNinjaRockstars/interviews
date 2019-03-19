@@ -38,6 +38,7 @@ const theme = {
       base: "rgba(255, 255, 255, 0.75)",
     },
     elements: {
+      menu: '#fff',
     },
     state: {
     }
