@@ -1,0 +1,6 @@
+{
+  "name": "@interit/tabs",
+  "version": "0.0.1",
+  "description": "Tabs component of interit application",
+  "main": "Tabs.js"
+}

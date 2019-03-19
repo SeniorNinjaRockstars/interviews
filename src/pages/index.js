@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Button from "../atoms/Button"
+import Button from "../core/Button"
 import HeroCarousel from "../components/HeroCarousel"
-import Layout from "../containers/Layout"
-import SEO from "../containers/SEO"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
 
 import heroConfig from "../config/hero"
 

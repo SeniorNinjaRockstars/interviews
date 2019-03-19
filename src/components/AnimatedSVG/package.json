@@ -1,0 +1,6 @@
+{
+  "name": "@interit/animated-svg",
+  "version": "0.0.1",
+  "description": "Animated SVG",
+  "main": "AnimatedSVG.js"
+}

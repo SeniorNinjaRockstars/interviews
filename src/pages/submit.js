@@ -4,8 +4,8 @@ import { Link } from "gatsby"
 import { Form, Field } from "react-final-form"
 import ReCAPTCHA from "react-google-recaptcha"
 
-import Layout from "../containers/Layout"
-import SEO from "../containers/SEO"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
 
 const SecondPage = () => (
   <Layout>

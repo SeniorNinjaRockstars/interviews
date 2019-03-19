@@ -1,0 +1,6 @@
+{
+  "name": "@interit/menu-button",
+  "version": "0.0.1",
+  "description": "Menu Button",
+  "main": "MenuButton.js"
+}
