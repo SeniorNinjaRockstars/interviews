@@ -30,6 +30,7 @@ const theme = {
       primary: "#0A1723",
       secondary: "#121E2A",
       base: "#0A1723",
+      dark: "#000",
     },
     text: {
       primary: "#FFF",

@@ -2,29 +2,6 @@ import styled, { css } from "styled-components"
 
 import NavLink from "../../atoms/NavLink";
 
-export const Overlay = styled.div`
-  background: ${({ theme }) => theme.color.background.darker};
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  opacity: 0;
-  transition: opacity ${({ theme }) => theme.effects.transition.base},
-    visibility ${({ theme }) => theme.effects.transition.none} 0.4s;
-  visibility: hidden;
-  z-index: 100;
-
-  ${({ isVisible }) =>
-    isVisible &&
-    css`
-      opacity: 0.2;
-      visibility: visible;
-      transition: opacity ${({ theme }) => theme.effects.transition.base},
-        visibility ${({ theme }) => theme.effects.transition.none} 0s;
-    `};
-`
-
 export const Nav = styled.nav`
   box-sizing: border-box;
   background: ${props => props.theme.color.background.base};
@@ -54,10 +31,6 @@ export const Nav = styled.nav`
   `};
 `
 
-export const MainNavLink = styled(NavLink)`
-  margin-right: 3rem;
-`;
-
 export const NavWrapper = styled.div`
   display: flex;
 
@@ -85,5 +58,31 @@ export const NavList = styled.ul`
     display: block;
     margin-bottom: 2rem;
   `};
-`;
+`
 
+export const MainNavLink = styled(NavLink)`
+  margin-right: 3rem;
+`
+
+export const NavOverlay = styled.div`
+  background: ${({ theme }) => theme.color.background.dark};
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0;
+  transition: opacity ${({ theme }) => theme.effects.transition.base},
+    visibility ${({ theme }) => theme.effects.transition.none} 0.4s;
+  visibility: hidden;
+  z-index: 100;
+
+  ${({ isVisible }) =>
+    isVisible &&
+    css`
+      opacity: 0.5;
+      visibility: visible;
+      transition: opacity ${({ theme }) => theme.effects.transition.base},
+        visibility ${({ theme }) => theme.effects.transition.none} 0s;
+    `};
+`
