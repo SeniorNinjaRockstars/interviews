@@ -22,10 +22,10 @@ const Layout = ({ children }) => (
     render={data => (
       <ThemeProvider theme={theme}>
         <>
+          <GlobalStyle />
           <Header siteTitle={data.site.siteMetadata.title} />
           {children}
           <Footer />
-          <GlobalStyle />
         </>
       </ThemeProvider>
     )}
