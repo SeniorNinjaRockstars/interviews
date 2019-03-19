@@ -9,7 +9,6 @@ const ButtonWrapper = styled.button`
   cursor: pointer;
   height: 40px;
   margin-left: auto;
-  outline: 0;
   right: 0;
   padding: 10px;
   width: 40px;
