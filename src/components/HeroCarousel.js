@@ -50,9 +50,11 @@ class HeroCarousel extends Component {
 
   componentDidMount() {
     const itemsNum = this.props.dynamicList.length
-    setInterval(() => this.setState({
-      index: (this.state.index + 1) % itemsNum 
-    }), this.props.duration)
+    setInterval(() => this.setState(
+      prevState => ({
+        index: (prevState.index + 1) % itemsNum 
+      })
+    ), this.props.duration)
   }
 
   render() {
