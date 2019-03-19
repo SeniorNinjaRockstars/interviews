@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components"
 
-import NavLink from "../../atoms/NavLink";
+import NavLink from "../../atoms/NavLink"
+import { List } from "../NavList/styled"
 
 export const Nav = styled.nav`
   box-sizing: border-box;
@@ -39,30 +40,27 @@ export const NavWrapper = styled.div`
     opacity: 0;
     transition: opacity ${theme.effects.transition.base} 0s;
 
-    ${({ isMenuOpened }) => isMenuOpened &&
-      `
+    ${({ isMenuOpened }) => isMenuOpened && `
       opacity: 1;
       transition-delay: 0.2s;
     `}
   `};
+
+  ${List} {
+    ${({ theme }) => theme.media.tablet`
+      display: block;
+      margin-bottom: 2rem;
+    `};
+  }
+
+  ${NavLink} {
+    ${({ theme }) => theme.media.tablet`
+      font-size: ${theme.font.size.heading.tertiary};
+      color: ${theme.color.text.primary};
+      margin: 0 0 0.5rem;
+    `};
+  }
 `;
-
-export const NavList = styled.ul`
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-
-  ${({ theme }) => theme.media.tablet`
-    display: block;
-    margin-bottom: 2rem;
-  `};
-`
-
-export const MainNavLink = styled(NavLink)`
-  margin-right: 3rem;
-`
 
 export const NavOverlay = styled.div`
   background: ${({ theme }) => theme.color.background.dark};

@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 import Logo from "../../atoms/Logo"
 import Container from "../../atoms/Container"
-import Navigation from "../Navigation"
+import MainNavigation from "../MainNavigation"
 
 import { HeaderWrapper, HeaderContent } from "./styled.js"
 
@@ -15,7 +15,7 @@ function Header() {
           <Link to="/">
             <Logo />
           </Link>
-          <Navigation />
+          <MainNavigation />
         </HeaderContent>
       </Container>
     </HeaderWrapper>
