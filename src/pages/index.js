@@ -6,7 +6,7 @@ import HeroCarousel from "../components/HeroCarousel"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 
-import heroConfig from "../config/hero"
+import heroConfig from "../content/hero"
 
 const IndexPage = () => (
   <Layout>

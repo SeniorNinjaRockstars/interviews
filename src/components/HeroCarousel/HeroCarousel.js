@@ -67,6 +67,7 @@ class HeroCarousel extends Component {
         <InnerContainer>
           <AnimatedTitle 
             as="h1"
+            key={title}
             text={title}
             duration={duration}
             />
@@ -97,6 +98,7 @@ HeroCarousel.propTypes = {
   children: PropTypes.node,
   dynamicList: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
+    image: PropTypes.node.isRequired,
   })),
 }
 
