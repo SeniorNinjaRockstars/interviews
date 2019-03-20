@@ -1,16 +1,24 @@
 import React from "react"
+import { Link } from "gatsby"
 
-import Logo from "../Logo"
-import Navigation from "../Navigation"
+import Logo from "../../core/Logo"
+import Container from "../../core/Container"
+import MainNavigation from "../MainNavigation"
 
-import { header } from "./Header.module.css"
+import { HeaderWrapper, HeaderContent } from "./Header.styled.js"
 
 function Header() {
   return (
-    <header className={header}>
-      <Logo />
-      <Navigation />
-    </header>
+    <HeaderWrapper>
+      <Container>
+        <HeaderContent>
+          <Link to="/">
+            <Logo />
+          </Link>
+          <MainNavigation />
+        </HeaderContent>
+      </Container>
+    </HeaderWrapper>
   )
 }
 

@@ -1,6 +1,0 @@
-{
-  "name": "@interit/navigation",
-  "version": "0.0.1",
-  "description": "Navigation component of interit application",
-  "main": "Navigation.js"
-}
