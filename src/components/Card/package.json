@@ -1,6 +1,0 @@
-{
-  "name": "@interit/card",
-  "version": "0.0.1",
-  "description": "Card component of interit application",
-  "main": "Card.js"
-}

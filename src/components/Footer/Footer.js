@@ -1,17 +1,23 @@
 import React from "react"
+import { Link } from "gatsby"
 
-import Logo from "../Logo"
-import Navigation from "../Navigation"
+import Logo from "../../core/Logo"
+import NavList from "../NavList"
+import Container from "../../core/Container";
 
-import { footer } from "./Footer.module.css"
+import { FooterWrapper, FooterContent } from './Footer.styled';
 
-function Footer() {
-  return (
-    <footer className={footer}>
-      <Logo />
-      <Navigation />
-    </footer>
-  )
-}
+const Footer = () => (
+  <FooterWrapper>
+    <Container>
+      <FooterContent>
+        <Link to="/">
+          <Logo />
+        </Link>
+        <NavList />
+      </FooterContent>
+    </Container>
+  </FooterWrapper>
+)
 
 export default Footer
