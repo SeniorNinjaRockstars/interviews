@@ -1,43 +1,12 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import styled from "styled-components"
 
 import Container from "../../core/Container"
 import Animation from "../Animation"
 import AnimatedTitle from "../AnimatedTitle"
 import AnimatedSVG from "../AnimatedSVG"
 
-const InnerContainer = styled.div`
-  margin: 120px 16.667%;
-  position: relative;
-
-  ${({ theme }) => theme.media.tablet`
-    margin: 80px 0;
-  `}
-`
-
-const ContentWrapper = styled.div`
-  width: 50%;
-  padding-right: 20px;
-  
-  p {
-    margin-bottom: 2rem;
-  }
-`
-
-const ImageWrapper = styled.div`
-  box-sizing: border-box;
-  width: 50%;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
-  padding-left: 20px;
-
-  svg {
-    width: 100%;
-  }
-`
+import { InnerContainer, ContentWrapper, ImageWrapper } from './HeroCarousel.styled';
 
 class HeroCarousel extends Component {
   constructor(props) {
