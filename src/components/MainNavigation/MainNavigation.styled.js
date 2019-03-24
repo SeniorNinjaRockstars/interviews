@@ -55,7 +55,7 @@ export const NavWrapper = styled.div`
 
   ${NavLink} {
     ${({ theme }) => theme.media.tablet`
-      font-size: ${theme.font.size.heading.tertiary};
+      font-size: ${theme.font.size.label.primary};
       color: ${theme.color.text.primary};
       margin: 0 0 0.5rem;
     `};

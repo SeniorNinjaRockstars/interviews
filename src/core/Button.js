@@ -25,7 +25,7 @@ const Button = styled.button`
   }
 
   ${({ theme }) => theme.media.mobile`
-    font-size: ${theme.font.size.label.secondary};
+    font-size: ${theme.font.size.label.tertiary};
   `};
 
   ${({ primary, theme }) =>
@@ -36,7 +36,7 @@ const Button = styled.button`
       padding: 1rem 2.5rem;
 
       ${theme.media.mobile`
-        font-size: ${theme.font.size.label.secondary};
+        font-size: ${theme.font.size.label.tertiary};
         padding: 1rem 2rem;
       `};
     `}

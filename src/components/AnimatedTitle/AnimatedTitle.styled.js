@@ -5,9 +5,18 @@ import Heading from "../../core/Heading"
 
 export const Title = styled(Heading)`
   font-size: ${({ theme }) => theme.font.size.heading.primary};
-  margin: 0 0 2rem;
+  margin: 0 0 1rem;
   display: flex;
   flex-wrap: wrap;
+  
+  ${({ theme }) => theme.media.tablet`
+    font-size: ${({ theme }) => theme.font.size.heading.secondary};
+  `}
+
+  ${({ theme }) => theme.media.tablet`
+    font-size: ${({ theme }) => theme.font.size.heading.tertiary};
+    line-height: ${({ theme }) => theme.font.lineHeight.small};
+  `}
 `
 
 export const RevealWrapper = styled.span`

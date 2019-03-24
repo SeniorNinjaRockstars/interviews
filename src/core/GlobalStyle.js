@@ -10,6 +10,8 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.color.text.base};
     background: ${({ theme }) => theme.color.background.base};
     margin: 0;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   img {
