@@ -5,32 +5,25 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
-    // {
-    //   resolve: "gatsby-source-firestore",
-    //   options: {
-    //     credential: require("./firebase.json"),
-    //     types: [
-    //       {
-    //         type: "Book",
-    //         collection: "books",
-    //         map: doc => ({
-    //           title: doc.title,
-    //           isbn: doc.isbn,
-    //           author___NODE: doc.author.id,
-    //         }),
-    //       },
-    //       {
-    //         type: "Author",
-    //         collection: "authors",
-    //         map: doc => ({
-    //           name: doc.name,
-    //           country: doc.country,
-    //           books___NODE: doc.books.map(book => book.id),
-    //         }),
-    //       },
-    //     ],
-    //   },
-    // },
+    {
+      resolve: "gatsby-source-firestore",
+      options: {
+        credential: require("./firebase.json"),
+        types: [
+          {
+            type: "Questions",
+            collection: "questions",
+            map: doc => ({
+              text: doc.text,
+              level: doc.level,
+              category: doc.category,
+              created_at: doc.created_at,
+              published: doc.published
+            }),
+          }
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

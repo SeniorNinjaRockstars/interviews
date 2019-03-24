@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "dayjs": "^1.8.10",
     "final-form": "^4.11.1",
     "gatsby": "^2.1.18",
     "gatsby-image": "^2.0.30",
