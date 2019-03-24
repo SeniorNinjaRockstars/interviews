@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 
-const Button = styled.button`
+const Button = styled.a`
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
