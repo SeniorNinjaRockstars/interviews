@@ -51,13 +51,13 @@ const theme = {
       heading: {
         primary: "4rem",
         secondary: "3rem",
-        tertiary: "2rem",
+        tertiary: "2.4rem",
         base: "1rem"
       },
       label: {
-        primary: "1.25rem",
-        secondary: "0.875rem",
-        tertiary: "0.75rem",
+        primary: "2rem",
+        secondary: "1.25rem",
+        tertiary: "0.875rem",
         base: "1rem"
       }
     },

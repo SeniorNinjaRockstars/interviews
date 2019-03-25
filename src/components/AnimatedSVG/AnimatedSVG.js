@@ -19,13 +19,13 @@ class AnimatedSVG extends Component {
   pathOut(path, i) {
     setTimeout(() => {
       TweenMax.to(path, 1, { strokeDashoffset: -path._len })
-    }, 20 * i)
+    }, 50 * i)
   }
 
   pathIn(path, i) {
     setTimeout(() => {
       TweenMax.to(path, 1, { strokeDashoffset: 0 })
-    }, 20 * i)
+    }, 50 * i)
   }
 
   componentDidMount() {
@@ -42,7 +42,7 @@ class AnimatedSVG extends Component {
     
     this.paths = this.paths.reverse();
     
-    const duration = this.props.duration - 40 * this.paths.length
+    const duration = this.props.duration - 50 * this.paths.length
     this.all(this.pathIn)
     setTimeout(() => this.all(this.pathOut), duration)
   }
