@@ -1,0 +1,6 @@
+{
+  "name": "@interit/tag",
+  "version": "0.0.1",
+  "description": "Tag component of interit application",
+  "main": "Tag.js"
+}

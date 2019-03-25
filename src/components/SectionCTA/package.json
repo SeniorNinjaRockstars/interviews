@@ -1,0 +1,6 @@
+{
+  "name": "@interit/section-cta",
+  "version": "0.0.1",
+  "description": "Section CTA component of interit application",
+  "main": "SectionCTA.js"
+}
