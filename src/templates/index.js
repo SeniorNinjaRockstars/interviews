@@ -4,20 +4,44 @@ import { graphql } from "gatsby"
 import dayjs from "dayjs"
 import 'dayjs/locale/pl'
 
+import Heading from "../core/Heading"
+import Container from "../core/Container"
+import Grid from "../core/Grid"
+import Box from "../core/Box"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import Tabs from "../components/Tabs"
+import Card from "../components/Card"
+import Tag from "../components/Tag"
+
 dayjs.locale('pl')
 
+const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+
 const IndexPageTemplate = ({ questions }) => (
-  <div>
-    <h1>Browse questions</h1>
-    {questions.map(question => (
-      <>
-        <pre>{JSON.stringify(question)}</pre>
-        <p>
-          {dayjs(question.created_at).locale('pl').format("DD MMMM")}
-        </p>
-      </>
-    ))}
-  </div>
+  <Layout>
+    <SEO title="Questions" />
+    <main>
+      <Container>
+        <Heading>Browse questions</Heading>
+        <Tabs />
+      </Container>
+      <Box light>
+        <Container>
+          <Grid cols={2}>
+            {questions.map(({ text, category, level, created_at }) => (
+              <Card
+                text={text}
+                category={<Tag name={category} />}
+                level={capitalize(level)}
+                date={dayjs(created_at).locale('pl').format("DD MMMM YYYY")}
+              />
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+    </main>
+  </Layout>
 )
 
 const IndexPage = ({ data }) => {

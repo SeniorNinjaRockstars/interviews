@@ -40,6 +40,7 @@ const theme = {
     },
     elements: {
       menu: '#fff',
+      border: "rgba(255, 255, 255, 0.05)",
     },
     state: {
     }
@@ -75,7 +76,7 @@ const theme = {
   },
   size: {
     border: {
-      base: "2px",
+      base: "3px",
     },
     borderRadius: "24px",
   },
