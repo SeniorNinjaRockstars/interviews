@@ -53,7 +53,7 @@ const theme = {
         primary: "4rem",
         secondary: "3rem",
         tertiary: "2.4rem",
-        base: "1rem"
+        base: "2rem"
       },
       label: {
         primary: "2rem",

@@ -13,6 +13,7 @@ import SEO from "../components/SEO"
 import Tabs from "../components/Tabs"
 import Card from "../components/Card"
 import Tag from "../components/Tag"
+import SectionCTA from "../components/SectionCTA"
 
 dayjs.locale('pl')
 
@@ -40,6 +41,7 @@ const IndexPageTemplate = ({ questions }) => (
           </Grid>
         </Container>
       </Box>
+      <SectionCTA />
     </main>
   </Layout>
 )
