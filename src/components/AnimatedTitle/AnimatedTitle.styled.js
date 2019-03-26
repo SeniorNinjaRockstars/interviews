@@ -13,7 +13,7 @@ export const Title = styled(Heading)`
     font-size: ${({ theme }) => theme.font.size.heading.secondary};
   `}
 
-  ${({ theme }) => theme.media.tablet`
+  ${({ theme }) => theme.media.mobile`
     font-size: ${({ theme }) => theme.font.size.heading.tertiary};
     line-height: ${({ theme }) => theme.font.lineHeight.small};
   `}
