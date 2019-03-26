@@ -1,5 +1,4 @@
 import app from "firebase/app"
-import "firebase/functions"
 import "firebase/firestore"
 
 const config = {
@@ -14,7 +13,6 @@ const config = {
 class Firebase {
   constructor() {
     app.initializeApp(config)
-    this.functions = app.functions()
     this.db = app.firestore()
   }
   
@@ -22,8 +20,8 @@ class Firebase {
     // Add a second document with a generated ID.
     this.db.collection("questions")
       .add(data)
-      .then((docRef) => console.log("Document written with ID: ", docRef.id))
-      .catch((error) => console.error("Error adding document: ", error))
+      .then(docRef => console.log("Document written with ID: ", docRef.id))
+      .catch(error => console.error("Error adding document: ", error))
   }
 }
 
