@@ -16,10 +16,14 @@ class Layout extends Component {
   }
 
   componentDidMount() {
-    import('firebase/app')
+    const app = import('firebase/app')
+    const firestore = import('firebase/firestore')
+
+    Promise
+      .all([app, firestore])
       .then(([app]) => {
-        const firebase = getFirebase(app);
-        this.setState({ firebase });
+        const firebase = getFirebase(app)
+        this.setState({ firebase })
       });
   }
 

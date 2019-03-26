@@ -10,6 +10,7 @@ const config = {
 class Firebase {
   constructor(app) {
     app.initializeApp(config)
+
     this.db = app.firestore()
   }
   
