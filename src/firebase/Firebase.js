@@ -10,17 +10,15 @@ const config = {
 class Firebase {
   constructor(app) {
     app.initializeApp(config)
-
     this.db = app.firestore()
   }
   
-  createEntry(data) {
-    // Add a second document with a generated ID.
+  createEntry = (data) => (
     this.db.collection("questions")
       .add(data)
       .then(docRef => console.log("Document written with ID: ", docRef.id))
       .catch(error => console.error("Error adding document: ", error))
-  }
+  )
 }
 
 export default Firebase

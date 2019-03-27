@@ -18,7 +18,7 @@ class Layout extends Component {
   componentDidMount() {
     const app = import('firebase/app')
     const firestore = import('firebase/firestore')
-
+    
     Promise
       .all([app, firestore])
       .then(([app]) => {
@@ -29,6 +29,7 @@ class Layout extends Component {
 
   render() {
     const { children } = this.props;
+    const { firebase } = this.state;
 
     return (
       <StaticQuery
@@ -43,7 +44,7 @@ class Layout extends Component {
         `}
         render={data => (
           <ThemeProvider theme={theme}>
-            <FirebaseContext.Provider value={this.state.firebase}>
+            <FirebaseContext.Provider value={firebase}>
               <GlobalStyle />
               <Header siteTitle={data.site.siteMetadata.title} />
               {children}
