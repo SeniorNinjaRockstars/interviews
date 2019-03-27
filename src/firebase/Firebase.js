@@ -13,9 +13,15 @@ class Firebase {
     this.db = app.firestore()
   }
   
-  createEntry = (data) => (
+  createEntry = ({ category, level, text }) => (
     this.db.collection("questions")
-      .add(data)
+      .add({
+        category,
+        level,
+        text,
+        created_at: new Date(),
+        published: false,
+      })
       .then(docRef => console.log("Document written with ID: ", docRef.id))
       .catch(error => console.error("Error adding document: ", error))
   )

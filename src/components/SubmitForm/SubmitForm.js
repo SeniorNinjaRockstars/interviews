@@ -6,30 +6,29 @@ import { withFirebase } from "../../firebase"
 
 const SubmitForm = ({ firebase }) => (
   <Form
-    onSubmit={() => {
-      console.log("Creating entry")
+    onSubmit={({ category, level, text }) => {
       firebase.createEntry({
-        category: "JavaScript",
-        created_at: new Date(),
-        level: "Junior",
-        published: false,
-        text: "Upload przykładowego pytania.",
+        category, level, text,
       })
     }}
     render={({ handleSubmit, pristine, invalid }) => (
       <form onSubmit={handleSubmit}>
         <div>
-          <label>First Name</label>
-          <Field
-            name="firstname"
-            component="input"
-            placeholder="First Name"
-          />
+          <label>Category</label>
+          <Field name="category" component="select" isRequired>
+            <option value="JavaScript">JavaScipt</option>
+            <option value="Python">Python</option>
+            <option value="C++">C++</option>
+          </Field>
         </div>
 
         <div>
-          <label>E-mail address</label>
-          <Field name="email" component="input" placeholder="E-mail" />
+          <label>Level</label>
+          <Field name="level" component="select" isRequired>
+            <option value="junior">Junior</option>
+            <option value="regular">Regular</option>
+            <option value="senior">Senior</option>
+          </Field>
         </div>
 
         <div>
@@ -41,17 +40,15 @@ const SubmitForm = ({ firebase }) => (
           />
         </div>
 
-        <Field
-          name="question"
-          render={({ input, meta }) => (
-            <div>
-              <label>Your question</label>
-              <textarea {...input} />
-              {meta.touched && meta.error && <span>{meta.error}</span>}
-            </div>
-          )}
-        />
-
+        <div>
+          <label>Your question</label>
+          <Field
+            name="text"
+            component="textarea"
+            placeholder="Your question"
+            isRequired
+          />
+        </div>
         <button type="submit" disabled={pristine || invalid}>
           Submit
         </button>
