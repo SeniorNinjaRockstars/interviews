@@ -1,0 +1,6 @@
+{
+  "name": "@interit/submit-form",
+  "version": "0.0.1",
+  "description": "Submit form",
+  "main": "SubmitForm.js"
+}
