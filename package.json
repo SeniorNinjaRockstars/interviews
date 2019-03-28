@@ -7,6 +7,7 @@
   "dependencies": {
     "dayjs": "^1.8.10",
     "final-form": "^4.11.1",
+    "firebase": "^5.9.1",
     "gatsby": "^2.1.18",
     "gatsby-image": "^2.0.30",
     "gatsby-plugin-manifest": "^2.0.19",
