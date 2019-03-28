@@ -5,14 +5,12 @@
  */
 
 const path = require("path")
+const config = require("./gatsby-config")
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  createPage({
-    path: "browse",
-    component: path.resolve(`src/templates/index.js`),
-  })
+  const template = path.resolve(`src/templates/index.js`)
 
   return graphql(`
     {
@@ -35,42 +33,35 @@ exports.createPages = ({ actions, graphql }) => {
       throw result.errors
     }
 
-    const levels = ["JUNIOR", "REGULAR", "SENIOR"]
-    const technologies = ["JavaScript", "Python", "C++"]
+    const levels = config.siteMetadata.levels.map(el => el.id)
+    const categories = config.siteMetadata.categories.map(el => el.id)
 
     const pagination = 2
 
     function generatePagination(pagePath, data) {
-      createPage({
-        path: pagePath,
-        component: path.resolve(`src/templates/index.js`),
-        context: {
-          data: data.filter((e, i) => i < pagination),
-          next: data.length > pagination ? `${pagePath}/1` : "",
-          prev: "",
-        },
-      })
       const dataLength = data.length
-      if(dataLength < pagination) return;
-      for (let i = 1; i <= dataLength / pagination; i++) {
-        data = data.slice(pagination)
+      for (let i = 0; i <= dataLength / pagination; i++) {
+        if(data.length === 0) break;
         createPage({
-          path: `${pagePath}/${i}`,
-          component: path.resolve(`src/templates/index.js`),
+          path: `${pagePath}/${i === 0 ? "" : i}`,
+          component: template,
           context: {
             data: data.filter((e, i) => i < pagination),
             next: data.length > pagination ? `${pagePath}/${i + 1}` : "",
-            prev: i === 1 ? pagePath : `${pagePath}/${i - 1}`,
+            prev: i === 0 ? "" : `${pagePath}/${i - 1 <= 0 ? "" : i - 1}`,
           },
         })
+        data = data.slice(pagination)
       }
     }
 
-    technologies.forEach(category => {
+    generatePagination("browse", result.data.allQuestions.edges)
+
+    categories.forEach(category => {
       generatePagination(
         `browse/${category.toLowerCase()}`,
         result.data.allQuestions.edges.filter(
-          edge => edge.node.category === category
+          edge => edge.node.category.toLowerCase() === category
         )
       )
 
@@ -78,22 +69,12 @@ exports.createPages = ({ actions, graphql }) => {
         generatePagination(
           `browse/${category.toLowerCase()}/${level.toLowerCase()}`,
           result.data.allQuestions.edges.filter(
-            edge => edge.node.category === category && edge.node.level.toUpperCase() === level
+            edge =>
+              edge.node.category.toLowerCase() === category &&
+              edge.node.level.toLowerCase() === level
           )
         )
       })
     })
-
-    // Create blog post pages.
-    // result.data.allQuestions.edges.forEach((edge, index, array) => {
-    //   createPage({
-    //     // Path for this page — required
-    //     path: `slug`,
-    //     component: path.resolve(`src/templates/index.js`),
-    // context: {
-    //   data: array.filter()
-    // },
-    //   })
-    // })
   })
 }
