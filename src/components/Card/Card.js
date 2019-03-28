@@ -10,15 +10,15 @@ const Card = ({ text, category, level, date }) => (
     <MainText>{text}</MainText>
     <InfoBox>
       <LabeledInfo>
-        <Label>Category</Label>
+        <Label as="p">Category</Label>
         <Info>{category}</Info>
       </LabeledInfo>
       <LabeledInfo>
-        <Label>Level</Label>
+        <Label as="p">Level</Label>
         <Info>{level}</Info>
       </LabeledInfo>
       <LabeledInfo>
-        <Label>Posted</Label>
+        <Label as="p">Posted</Label>
         <Info>{date}</Info>
       </LabeledInfo>
     </InfoBox>
