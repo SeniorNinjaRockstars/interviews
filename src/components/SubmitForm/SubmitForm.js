@@ -14,15 +14,15 @@ import { required } from "../../validators"
 
 const SubmitForm = ({ firebase }) => (
   <Form
-    onSubmit={({ category, level, text }) => {
+    onSubmit={({ category, level, text }) => (
       firebase.createEntry({
         category: category.value,
         level: level.value,
         text,
       })
-    }}
-    render={({ handleSubmit, pristine, invalid }) => (
-      <form onSubmit={handleSubmit}>
+    )}
+    render={({ handleSubmit, pristine, invalid, submitting, reset }) => (
+      <form onSubmit={() => handleSubmit().then(reset)}>
         <FieldWrapper>
           <Label>Category</Label>
           <Field
@@ -89,7 +89,7 @@ const SubmitForm = ({ firebase }) => (
             )}
           />
         </FieldWrapper>
-        <Button as="button" type="submit" disabled={pristine || invalid}>
+        <Button as="button" type="submit" disabled={pristine || invalid || submitting}>
           Submit
         </Button>
       </form>
