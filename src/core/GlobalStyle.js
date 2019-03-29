@@ -22,7 +22,17 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     color: ${({ theme }) => theme.color.text.primary};
-    font-weight: ${({ theme }) => theme.font.weight.bold};
+    font-weight: ${({ theme }) => theme.font.weight.extraBold};
+    line-height: ${({ theme }) => theme.font.lineHeight.small};
+  }
+  
+  h1 {
+    font-size: ${({ theme }) => theme.font.size.tertiary};
+  }
+
+  
+  h2 {
+    font-size: ${({ theme }) => theme.font.size.heading.base};
   }
 
   p {

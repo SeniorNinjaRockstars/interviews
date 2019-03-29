@@ -10,6 +10,11 @@ const Textarea = styled.textarea`
   border: ${({ theme }) => theme.size.border.base} solid ${({ theme }) => theme.color.elements.border};
   padding: 10px 20px;
   color: ${({ theme }) => theme.color.text.primary};
+
+  &:focus {
+    outline: 0;
+    box-shadow: ${({ theme }) => theme.effects.outline};
+  }
 `
 
 export default Textarea

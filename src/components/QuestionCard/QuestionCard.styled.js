@@ -1,16 +1,11 @@
 import styled from "styled-components"
 
-export const CardWrapper = styled.div`
-  border-radius: ${({ theme }) => theme.size.borderRadius};
-  border: ${({ theme }) => theme.size.border.base} solid ${({ theme }) => theme.color.elements.border};
-  padding: 2rem;
+import Card from "../../core/Card"
+
+export const CardWrapper = styled(Card)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
-  > *:first-child {
-    margin-top: 0;
-  }
 
   > *:last-child {
     margin-bottom: 0;

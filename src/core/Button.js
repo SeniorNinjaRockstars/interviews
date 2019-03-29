@@ -48,6 +48,17 @@ const Button = styled.a`
       min-width: none;
       width: 100%;
     `}
+
+  ${({ disabled, theme }) =>
+    disabled &&
+    css`
+      border-color: ${theme.color.elements.border};
+      color: ${theme.color.text.tertiary};
+
+      &:hover {
+        background: transparent;
+      }
+    `}
 `
 
 export default Button

@@ -7,11 +7,11 @@ export const Column = styled.div`
   ${({ theme }) => theme.media.tablet`
     flex: initial;
     flex-basis: 100%;
-    padding: 0 20px;
+    padding: 20px;
   `}
 
   ${({ theme }) => theme.media.mobile`
-    padding: 0;
+    padding: 20px 0;
   `};
 `;
 
@@ -21,10 +21,10 @@ export const ColumnContainer = styled.div`
 
   ${({ theme }) => theme.media.tablet`
     flex-wrap: wrap;
-    margin: 0 -20px;
+    margin: -20px;
   `}
 
   ${({ theme }) => theme.media.mobile`
-    margin: 0;
+    margin: -20px 0;
   `};
 `;

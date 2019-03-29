@@ -3,9 +3,9 @@ import PropTypes from "prop-types"
 
 import Label from "../../core/Label";
 
-import { CardWrapper, MainText, InfoBox, LabeledInfo, Info } from "./Card.styled"
+import { CardWrapper, MainText, InfoBox, LabeledInfo, Info } from "./QuestionCard.styled"
 
-const Card = ({ text, category, level, date }) => (
+const QuestionCard = ({ text, category, level, date }) => (
   <CardWrapper>
     <MainText>{text}</MainText>
     <InfoBox>
@@ -25,8 +25,11 @@ const Card = ({ text, category, level, date }) => (
   </CardWrapper>
 )
 
-Card.propTypes = {
-  children: PropTypes.node,
+QuestionCard.propTypes = {
+  text: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  level: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
 }
 
-export default Card
+export default QuestionCard

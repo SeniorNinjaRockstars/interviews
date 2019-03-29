@@ -26,7 +26,7 @@ const SubmitForm = ({ firebase }) => (
             name="category"
             required
             render={({ input, meta }) => (
-              <Select {...input} options={[
+              <Select {...input} placeholder="Choose category..." options={[
                 { value: "JavaScript", label: "JavaScript" },
                 { value: "Python", label: "Python" },
                 { value: "C++", label: "C++" }
@@ -41,7 +41,7 @@ const SubmitForm = ({ firebase }) => (
             name="level"
             required
             render={({ input, meta }) => (
-              <Select {...input} options={[
+              <Select {...input} placeholder="Choose level..." options={[
                 { value: "junior", label: "Junior" },
                 { value: "regular", label: "Regular" },
                 { value: "senior", label: "Senior" }
@@ -64,8 +64,9 @@ const SubmitForm = ({ firebase }) => (
           <Field
             name="text"
             component={Textarea}
-            placeholder="Your question"
+            placeholder="Your question..."
             required
+            rows={4}
           />
         </FieldWrapper>
         <Button as="button" type="submit" disabled={pristine || invalid}>

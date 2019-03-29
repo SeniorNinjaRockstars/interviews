@@ -20,6 +20,7 @@ const theme = {
   color: {
     accent: {
       primary: "#09FFBF",
+      secondary: "#9F10CB",
     },
     context: {
       javascript: '#CCA31F',
@@ -86,6 +87,7 @@ const theme = {
       base: "0.4s ease-out",
       slow: "1s ease-out",
     },
+    outline: "0 0 0 1px #09FFBF",
   },
   media: mediaQueries
 }

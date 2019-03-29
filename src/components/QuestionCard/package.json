@@ -1,0 +1,6 @@
+{
+  "name": "@interit/question-card",
+  "version": "0.0.1",
+  "description": "Question card component of interit application",
+  "main": "QuestionCard.js"
+}
