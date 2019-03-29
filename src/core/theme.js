@@ -43,8 +43,6 @@ const theme = {
       menu: '#fff',
       border: "rgba(255, 255, 255, 0.05)",
     },
-    state: {
-    }
   },
   font: {
     family: "'Nunito Sans', sans-serif",
@@ -87,7 +85,10 @@ const theme = {
       base: "0.4s ease-out",
       slow: "1s ease-out",
     },
-    outline: "0 0 0 1px #09FFBF",
+    outline: {
+      base: "0 0 0 1px #09FFBF",
+      error: "0 0 0 1px #ff0033",
+    } 
   },
   media: mediaQueries
 }

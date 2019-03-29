@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 const Textarea = styled.textarea`
   font-family: inherit;
@@ -13,8 +13,12 @@ const Textarea = styled.textarea`
 
   &:focus {
     outline: 0;
-    box-shadow: ${({ theme }) => theme.effects.outline};
+    box-shadow: ${({ theme }) => theme.effects.outline.base};
   }
+  
+  ${({ theme, error }) => error && css`
+    box-shadow: ${({ theme }) => theme.effects.outline.error};
+  `}
 `
 
 export default Textarea

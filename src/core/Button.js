@@ -16,7 +16,9 @@ const Button = styled.a`
   min-width: 6em;
   padding: 0.75rem 2rem;
   transition: 
-    background ${({ theme }) => theme.effects.transition.quick};
+    background ${({ theme }) => theme.effects.transition.quick},
+    color ${({ theme }) => theme.effects.transition.quick},
+    border-color ${({ theme }) => theme.effects.transition.quick};
   text-align: center;
   text-decoration: none;
 

@@ -10,13 +10,16 @@ import Button from "../../core/Button"
 
 import { Select, FieldWrapper } from "./SubmitForm.styled"
 
+import { required } from "../../validators"
+
 const SubmitForm = ({ firebase }) => (
   <Form
     onSubmit={({ category, level, text }) => {
-      console.log(category, level, text)
-      // firebase.createEntry({
-      //   category, level, text,
-      // })
+      firebase.createEntry({
+        category: category.value,
+        level: level.value,
+        text,
+      })
     }}
     render={({ handleSubmit, pristine, invalid }) => (
       <form onSubmit={handleSubmit}>
@@ -24,13 +27,18 @@ const SubmitForm = ({ firebase }) => (
           <Label>Category</Label>
           <Field
             name="category"
-            required
+            validate={required}
             render={({ input, meta }) => (
-              <Select {...input} placeholder="Choose category..." options={[
-                { value: "JavaScript", label: "JavaScript" },
-                { value: "Python", label: "Python" },
-                { value: "C++", label: "C++" }
-              ]} />
+              <Select
+                {...input}
+                placeholder="Choose category..."
+                error={meta.error && meta.touched}
+                options={[
+                  { value: "JavaScript", label: "JavaScript" },
+                  { value: "Python", label: "Python" },
+                  { value: "C++", label: "C++" }
+                ]}
+              />
             )}
           />
         </FieldWrapper>
@@ -39,13 +47,18 @@ const SubmitForm = ({ firebase }) => (
           <Label>Level</Label>
           <Field
             name="level"
-            required
+            validate={required}
             render={({ input, meta }) => (
-              <Select {...input} placeholder="Choose level..." options={[
-                { value: "junior", label: "Junior" },
-                { value: "regular", label: "Regular" },
-                { value: "senior", label: "Senior" }
-              ]} />
+              <Select 
+                {...input}
+                placeholder="Choose level..."
+                error={meta.error && meta.touched}
+                  options={[
+                  { value: "junior", label: "Junior" },
+                  { value: "regular", label: "Regular" },
+                  { value: "senior", label: "Senior" }
+                ]}
+              />
             )}
           />
         </FieldWrapper>
@@ -63,10 +76,17 @@ const SubmitForm = ({ firebase }) => (
           <Label>Your question</Label>
           <Field
             name="text"
-            component={Textarea}
-            placeholder="Your question..."
-            required
-            rows={4}
+            validate={required}
+            render={({ input, meta }) => (
+              <>
+                <Textarea
+                  {...input}
+                  placeholder="Your question..."
+                  rows={4}
+                  error={meta.error && meta.touched}
+                />
+              </>
+            )}
           />
         </FieldWrapper>
         <Button as="button" type="submit" disabled={pristine || invalid}>
