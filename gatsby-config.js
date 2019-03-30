@@ -1,8 +1,36 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Interit`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    author: `@interit-me`,
+    categories: [
+      {
+        id: "javascript",
+        label: "JavaScript",
+      },
+      {
+        id: "python",
+        label: "Python",
+      },
+      {
+        id: "cpp",
+        label: "C++",
+      },
+    ],
+    levels: [
+      {
+        id: "junior",
+        label: "Junior",
+      },
+      {
+        id: "regular",
+        label: "Regular",
+      },
+      {
+        id: "senior",
+        label: "Senior",
+      },
+    ],
   },
   plugins: [
     {
@@ -18,9 +46,9 @@ module.exports = {
               level: doc.level,
               category: doc.category,
               created_at: doc.created_at,
-              published: doc.published
+              published: doc.published,
             }),
-          }
+          },
         ],
       },
     },
@@ -48,13 +76,13 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /images/
-        }
-      }
-    }
+          include: /images/,
+        },
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
