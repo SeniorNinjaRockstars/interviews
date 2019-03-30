@@ -4,54 +4,94 @@ import { Form, Field } from "react-final-form"
 import ReCAPTCHA from "react-google-recaptcha"
 import { withFirebase } from "../../firebase"
 
+import Label from "../../core/Label"
+import Textarea from "../../core/Textarea"
+import Button from "../../core/Button"
+
+import { Select, FieldWrapper } from "./SubmitForm.styled"
+
+import { required } from "../../validators"
+
 const SubmitForm = ({ firebase }) => (
   <Form
-    onSubmit={({ category, level, text }) => {
+    onSubmit={({ category, level, text }) => (
       firebase.createEntry({
-        category, level, text,
+        category: category.value,
+        level: level.value,
+        text,
       })
-    }}
-    render={({ handleSubmit, pristine, invalid }) => (
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Category</label>
-          <Field name="category" component="select" isRequired>
-            <option value="JavaScript">JavaScipt</option>
-            <option value="Python">Python</option>
-            <option value="C++">C++</option>
-          </Field>
-        </div>
+    )}
+    render={({ handleSubmit, pristine, invalid, submitting, reset }) => (
+      <form onSubmit={() => handleSubmit().then(reset)}>
+        <FieldWrapper>
+          <Label>Category</Label>
+          <Field
+            name="category"
+            validate={required}
+            render={({ input, meta }) => (
+              <Select
+                {...input}
+                placeholder="Choose category..."
+                error={meta.error && meta.touched}
+                options={[
+                  { value: "JavaScript", label: "JavaScript" },
+                  { value: "Python", label: "Python" },
+                  { value: "C++", label: "C++" }
+                ]}
+              />
+            )}
+          />
+        </FieldWrapper>
 
-        <div>
-          <label>Level</label>
-          <Field name="level" component="select" isRequired>
-            <option value="junior">Junior</option>
-            <option value="regular">Regular</option>
-            <option value="senior">Senior</option>
-          </Field>
-        </div>
+        <FieldWrapper>
+          <Label>Level</Label>
+          <Field
+            name="level"
+            validate={required}
+            render={({ input, meta }) => (
+              <Select 
+                {...input}
+                placeholder="Choose level..."
+                error={meta.error && meta.touched}
+                  options={[
+                  { value: "junior", label: "Junior" },
+                  { value: "regular", label: "Regular" },
+                  { value: "senior", label: "Senior" }
+                ]}
+              />
+            )}
+          />
+        </FieldWrapper>
 
-        <div>
+        <FieldWrapper>
           <Field
             name="captcha"
             render={({ input }) => (
               <ReCAPTCHA sitekey={process.env.CAPTCHA_PUBLIC} {...input} />
             )}
           />
-        </div>
+        </FieldWrapper>
 
-        <div>
-          <label>Your question</label>
+        <FieldWrapper>
+          <Label>Your question</Label>
           <Field
             name="text"
-            component="textarea"
-            placeholder="Your question"
-            isRequired
+            validate={required}
+            render={({ input, meta }) => (
+              <>
+                <Textarea
+                  {...input}
+                  placeholder="Your question..."
+                  rows={4}
+                  error={meta.error && meta.touched}
+                />
+              </>
+            )}
           />
-        </div>
-        <button type="submit" disabled={pristine || invalid}>
+        </FieldWrapper>
+        <Button as="button" type="submit" disabled={pristine || invalid || submitting}>
           Submit
-        </button>
+        </Button>
       </form>
     )}
   />

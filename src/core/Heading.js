@@ -5,6 +5,7 @@ const Heading = styled.h1`
   color: ${({ theme }) => theme.color.text.primary};
   font-weight: ${({ theme }) => theme.font.weight.extraBold};
   line-height: ${({ theme }) => theme.font.lineHeight.small};
+  margin-bottom: 1em;
 `;
 
-export default Heading;
+export default Heading

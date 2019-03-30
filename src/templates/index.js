@@ -11,7 +11,7 @@ import Box from "../core/Box"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import Tabs from "../components/Tabs"
-import Card from "../components/Card"
+import QuestionCard from "../components/QuestionCard"
 import Tag from "../components/Tag"
 import SectionCTA from "../components/SectionCTA"
 
@@ -31,7 +31,7 @@ const IndexPageTemplate = ({ questions }) => (
         <Container>
           <Grid cols={2}>
             {questions.map(({ text, category, level, created_at }) => (
-              <Card
+              <QuestionCard
                 text={text}
                 category={<Tag name={category} />}
                 level={capitalize(level)}
