@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Heading from "../../core/Heading"
 
 export const SectionWrapper = styled.section`
-  padding: 4rem 0 2rem;
+  padding: 4rem 0 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;

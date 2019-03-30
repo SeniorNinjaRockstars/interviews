@@ -1,8 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import dayjs from "dayjs"
-import 'dayjs/locale/pl'
+import "dayjs/locale/pl"
 
 import Heading from "../core/Heading"
 import Container from "../core/Container"
@@ -11,15 +11,16 @@ import Box from "../core/Box"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import Tabs from "../components/Tabs"
-import Card from "../components/Card"
+import QuestionCard from "../components/QuestionCard"
 import Tag from "../components/Tag"
 import SectionCTA from "../components/SectionCTA"
 
-dayjs.locale('pl')
+dayjs.locale("pl")
 
-const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+const capitalize = str =>
+  str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 
-const IndexPageTemplate = ({ questions }) => (
+const IndexPageTemplate = ({ questions, prev, next }) => (
   <Layout>
     <SEO title="Questions" />
     <main>
@@ -31,14 +32,18 @@ const IndexPageTemplate = ({ questions }) => (
         <Container>
           <Grid cols={2}>
             {questions.map(({ text, category, level, created_at }) => (
-              <Card
+              <QuestionCard
                 text={text}
                 category={<Tag name={category} />}
                 level={capitalize(level)}
-                date={dayjs(created_at).locale('pl').format("DD MMMM YYYY")}
+                date={dayjs(created_at)
+                  .locale("pl")
+                  .format("DD MMMM YYYY")}
               />
             ))}
           </Grid>
+          {prev && <Link to={prev}>Prev</Link>}
+          {next && <Link to={next}>Next</Link>}
         </Container>
       </Box>
       <SectionCTA />
@@ -46,12 +51,15 @@ const IndexPageTemplate = ({ questions }) => (
   </Layout>
 )
 
-const IndexPage = ({ data }) => {
-  const questions = data.allQuestions.edges.map(edge => edge.node)
+const IndexPage = ({ data, pageContext }) => {
+  const questions = (pageContext.data
+    ? pageContext.data
+    : data.allQuestions.edges
+  ).map(edge => edge.node);
 
   return (
     <div>
-      <IndexPageTemplate questions={questions} />
+      <IndexPageTemplate questions={questions} prev={pageContext.prev} next={pageContext.next} />
     </div>
   )
 }

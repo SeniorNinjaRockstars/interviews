@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import { TagWrapper } from "./Tag.styled"
+import { Link } from "gatsby";
 
 const nameToStyle = {
   "JavaScript": "javascript",
@@ -10,7 +11,7 @@ const nameToStyle = {
 }
 
 const Tag = ({ name }) => (
-  <TagWrapper name={nameToStyle[name]}>
+  <TagWrapper as={Link} to={`/browse/${name.toLowerCase()}`} name={nameToStyle[name]}>
     {name}
   </TagWrapper>
 )
