@@ -1,9 +1,13 @@
-import React from "react"
+import styled from "styled-components"
 
-function Logo() {
-  return (
-    <div>interit</div>
-  )
-}
+import LogoSVG from "../images/logo.svg"
 
-export default Logo;
+const Logo = styled(LogoSVG)`
+  width: 90px;
+
+  .cls-1 {
+    fill: ${({ light, dark }) => (light && "#fff") || (dark && "#222")}
+  }
+`
+
+export default Logo
