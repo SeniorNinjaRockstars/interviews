@@ -13,7 +13,7 @@ function Header() {
       <Container>
         <HeaderContent>
           <Link to="/">
-            <Logo />
+            <Logo light />
           </Link>
           <MainNavigation />
         </HeaderContent>
