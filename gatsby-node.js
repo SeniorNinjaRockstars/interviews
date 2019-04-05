@@ -36,7 +36,7 @@ exports.createPages = ({ actions, graphql }) => {
     const levels = config.siteMetadata.levels.map(el => el.id)
     const categories = config.siteMetadata.categories.map(el => el.id)
 
-    const pagination = 2
+    const pagination = 8
 
     function generatePagination(pagePath, data) {
       const dataLength = data.length

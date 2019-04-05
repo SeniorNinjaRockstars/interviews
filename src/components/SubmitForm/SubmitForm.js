@@ -22,7 +22,7 @@ const SubmitForm = ({ firebase }) => (
       })
     )}
     render={({ handleSubmit, pristine, invalid, submitting, reset }) => (
-      <form onSubmit={() => handleSubmit().then(reset)}>
+      <form onSubmit={(e) => e.preventDefault() || handleSubmit().then(reset)}>
         <FieldWrapper>
           <Label>Category</Label>
           <Field
@@ -63,14 +63,14 @@ const SubmitForm = ({ firebase }) => (
           />
         </FieldWrapper>
 
-        <FieldWrapper>
+        {/* <FieldWrapper>
           <Field
             name="captcha"
             render={({ input }) => (
               <ReCAPTCHA sitekey={process.env.CAPTCHA_PUBLIC} {...input} />
             )}
           />
-        </FieldWrapper>
+        </FieldWrapper> */}
 
         <FieldWrapper>
           <Label>Your question</Label>
