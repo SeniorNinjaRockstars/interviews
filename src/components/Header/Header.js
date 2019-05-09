@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Logo from "../../core/Logo"
-import Container from "../../core/Container"
+import { Container } from "../../core/Containers"
 import MainNavigation from "../MainNavigation"
 
 import { HeaderWrapper, HeaderContent } from "./Header.styled.js"

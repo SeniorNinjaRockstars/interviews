@@ -1,12 +1,13 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 
-import Container from "../../core/Container"
+import { Container } from "../../core/Containers"
+import { InnerContainer } from "../../core/Containers"
 import Animation from "../Animation"
 import AnimatedTitle from "../AnimatedTitle"
 import AnimatedSVG from "../AnimatedSVG"
 
-import { InnerContainer, ContentWrapper, ImageWrapper } from './HeroCarousel.styled';
+import { ContentWrapper, ImageWrapper } from './HeroCarousel.styled'
 
 class HeroCarousel extends Component {
   constructor(props) {

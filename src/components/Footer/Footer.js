@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 import Logo from "../../core/Logo"
 import NavList from "../NavList"
-import Container from "../../core/Container";
+import { Container } from "../../core/Containers";
 
 import { FooterWrapper, FooterContent } from './Footer.styled';
 

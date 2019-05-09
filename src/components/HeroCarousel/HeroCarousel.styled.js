@@ -1,19 +1,5 @@
 import styled from "styled-components"
 
-export const InnerContainer = styled.div`
-  margin: 18vh 16.667%;
-  position: relative;
-
-  ${({ theme }) => theme.media.tablet`
-    margin-left: 0;
-    margin-right: 0;
-  `}
-
-  ${({ theme }) => theme.media.mobile`
-    margin-top: 25vh;
-  `}
-`
-
 export const ContentWrapper = styled.div`
   width: 50%;
   padding-right: 20px;

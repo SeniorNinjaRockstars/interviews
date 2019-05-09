@@ -5,7 +5,7 @@ import dayjs from "dayjs"
 import "dayjs/locale/pl"
 
 import Heading from "../core/Heading"
-import Container from "../core/Container"
+import { Container } from "../core/Containers"
 import Grid from "../core/Grid"
 import Box from "../core/Box"
 import Layout from "../components/Layout"
