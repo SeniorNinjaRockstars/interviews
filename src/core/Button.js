@@ -9,7 +9,7 @@ const Button = styled.a`
   border-radius: 100px;
   border: ${({ theme }) => theme.size.border.base} solid ${({ theme }) => theme.color.accent.primary};
   font-weight: ${({ theme }) => theme.font.weight.bold};
-  font-size: ${({ theme }) => theme.font.size.label.base};
+  font-size: ${({ theme }) => theme.font.size.label.tertiary};
   line-height: ${({ theme }) => theme.font.lineHeight.tiny};
   color: ${({ theme }) => theme.color.text.primary};
   max-width: 12em;
@@ -33,6 +33,7 @@ const Button = styled.a`
   ${({ primary, theme }) =>
     primary &&
     css`
+      font-size: ${({ theme }) => theme.font.size.label.base};
       max-width: 20em;
       min-width: 8em;
       padding: 1rem 2.5rem;
@@ -56,6 +57,7 @@ const Button = styled.a`
     css`
       border-color: ${theme.color.elements.border};
       color: ${theme.color.text.tertiary};
+      pointer-events: none;
 
       &:hover {
         background: transparent;
