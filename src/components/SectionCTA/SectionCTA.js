@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Button from "../../core/Button"
-import Container from "../../core/Container"
+import { Container } from "../../core/Containers"
 
 import { SectionWrapper, HeadingCTA } from './SectionCTA.styled'
 

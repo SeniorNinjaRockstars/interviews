@@ -1,0 +1,6 @@
+{
+  "name": "@interit/pagination",
+  "version": "0.0.1",
+  "description": "Pagination list of interit application",
+  "main": "Pagination.js"
+}

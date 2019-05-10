@@ -88,7 +88,8 @@ const theme = {
     outline: {
       base: "0 0 0 1px #09FFBF",
       error: "0 0 0 1px #ff0033",
-    } 
+    },
+    hover: 0.8,
   },
   media: mediaQueries
 }

@@ -5,7 +5,7 @@ import Card from "../core/Card"
 import QuickLink from "../core/QuickLink"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import Container from "../core/Container"
+import { Container } from "../core/Containers"
 import SubmitForm from "../components/SubmitForm"
 import { Column, ColumnContainer } from "../core/Columns"
 

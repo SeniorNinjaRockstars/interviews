@@ -5,10 +5,11 @@ import dayjs from "dayjs"
 import "dayjs/locale/pl"
 
 import Heading from "../core/Heading"
-import Container from "../core/Container"
+import { Container } from "../core/Containers"
 import Grid from "../core/Grid"
 import Box from "../core/Box"
 import Layout from "../components/Layout"
+import Pagination from "../components/Pagination"
 import SEO from "../components/SEO"
 import Tabs from "../components/Tabs"
 import QuestionCard from "../components/QuestionCard"
@@ -42,8 +43,7 @@ const IndexPageTemplate = ({ questions, prev, next }) => (
               />
             ))}
           </Grid>
-          {prev && <Link to={prev}>Prev</Link>}
-          {next && <Link to={next}>Next</Link>}
+          <Pagination prev={prev} next={next} />
         </Container>
       </Box>
       <SectionCTA />
