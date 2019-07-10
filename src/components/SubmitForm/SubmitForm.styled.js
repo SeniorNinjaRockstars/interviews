@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { withTheme } from "styled-components"
+import styled, { css, withTheme } from "styled-components"
 import ReactSelect from "react-select"
 
 export const Select = withTheme(
@@ -38,6 +38,7 @@ export const Select = withTheme(
         ...provided,
         backgroundColor: theme.color.background.secondary,
         borderRadius: theme.size.borderRadius,
+        zIndex: 20,
       }),
       indicatorSeparator: () => ({
         display: "none",
@@ -55,8 +56,9 @@ export const Select = withTheme(
 
 export const FieldWrapper = styled.div`
   margin-bottom: 1rem;
+`
 
-  // Simple MDE Overrides
+export const MDEWrapper = styled.div`
   .editor-toolbar {
     background: ${({ theme }) => theme.color.background.secondary};
     border-top-left-radius: ${({ theme }) => theme.size.borderRadius};
@@ -69,7 +71,7 @@ export const FieldWrapper = styled.div`
       opacity: 1;
     }
 
-    a {
+    button {
       color: ${({ theme }) => theme.color.elements.icon} !important;
       transition: color ${({ theme }) => theme.effects.transition.quick};
       border-color: transparent;
@@ -86,7 +88,7 @@ export const FieldWrapper = styled.div`
     }
 
     &.disabled-for-preview {
-      a {
+      button {
         color: ${({ theme }) => theme.color.elements.border} !important;
         background: transparent !important;
         border-color: transparent !important;
@@ -106,6 +108,15 @@ export const FieldWrapper = styled.div`
     border-top: 0;
     color: ${({ theme }) => theme.color.text.primary};
     padding-left: 18px;
+
+    ${({ theme, error }) => error && css`
+      box-shadow: ${theme.effects.outline.error};
+    `}
+  }
+
+  .CodeMirror-focused {
+    outline: 0;
+    box-shadow: ${({ theme }) => theme.effects.outline.base};
   }
 
   .CodeMirror-cursor {

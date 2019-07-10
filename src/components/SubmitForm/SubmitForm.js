@@ -1,16 +1,15 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { Form, Field } from "react-final-form"
-import ReCAPTCHA from "react-google-recaptcha"
+// import ReCAPTCHA from "react-google-recaptcha"
 import { withFirebase } from "../../firebase"
-import SimpleMDE from "simplemde"
-import "simplemde/dist/simplemde.min.css"
+import SimpleMDE from "react-simplemde-editor";
+import "easymde/dist/easymde.min.css";
 
 import Label from "../../core/Label"
-import Textarea from "../../core/Textarea"
 import Button from "../../core/Button"
 
-import { Select, FieldWrapper } from "./SubmitForm.styled"
+import { Select, FieldWrapper, MDEWrapper } from "./SubmitForm.styled"
 
 import { required } from "../../validators"
 
@@ -18,20 +17,10 @@ class SubmitForm extends Component {
   constructor(props) {
     super(props)
 
-    this.textarea = React.createRef()
-  }
-  
-  componentDidMount() {
-    this.mde = new SimpleMDE({
-      autoDownloadFontAwesome: true,
-      element: this.refs.textarea,
-      renderingConfig: {
-        codeSyntaxHighlighting: true,
-      },
-      spellChecker: false,
-      status: false,
-      toolbar: ["code", "quote", "unordered-list",  "ordered-list", "|", "preview", "|", "guide"],
-    })
+    this.state = {
+      mde: "",
+      mdeTouched: false
+    }
   }
 
   render() {
@@ -45,10 +34,13 @@ class SubmitForm extends Component {
           //   level: level.value,
           //   text,
           // })
-          console.log(this.mde.value())
+          new Promise((resolve, reject) => {
+            console.log(this.mde.value())
+            resolve()
+          })
         )}
         render={({ handleSubmit, pristine, invalid, submitting, reset }) => (
-          <form onSubmit={(e) => e.preventDefault() || handleSubmit().then(reset)}>
+          <form onSubmit={(e) => e.preventDefault() || handleSubmit().then(reset)} noValidate>
             <FieldWrapper>
               <Label>Category</Label>
               <Field
@@ -79,7 +71,7 @@ class SubmitForm extends Component {
                     {...input}
                     placeholder="Choose level..."
                     error={meta.error && meta.touched}
-                      options={[
+                    options={[
                       { value: "junior", label: "Junior" },
                       { value: "regular", label: "Regular" },
                       { value: "senior", label: "Senior" }
@@ -101,18 +93,27 @@ class SubmitForm extends Component {
             <FieldWrapper>
               <Label>Your question</Label>
               <Field
-                name="text"
-                validate={required}
-                render={({ input, meta }) => (
-                  <>
-                    <Textarea
-                      {...input}
+                name="mde"
+                validate={() => this.state.mde ? null : "Wymagane"}
+                render={({ meta }) => (
+                  <MDEWrapper error={this.state.mdeTouched && meta.error}>
+                    <SimpleMDE
+                      onFocus={() => this.setState({ mdeTouched: true })}
+                      onChange={value => this.setState({ mde: value })}
+                      value={this.state.mde}
                       placeholder="Your question..."
-                      rows={4}
-                      error={meta.error && meta.touched}
-                      ref={this.textarea}
+                      options={{
+                        autoDownloadFontAwesome: true,
+                        renderingConfig: {
+                          codeSyntaxHighlighting: true,
+                        },
+                        spellChecker: false,
+                        status: false,
+                        toolbar: ["code", "quote", "unordered-list",  "ordered-list", "|", "preview", "|", "guide"],
+                      }}
                     />
-                  </>
+                  </MDEWrapper>
+                  
                 )}
               />
             </FieldWrapper>
