@@ -28,11 +28,11 @@ class SubmitForm extends Component {
 
     return (
       <Form
-        onSubmit={({ category, level }) => (
+        onSubmit={({ category, level, mde }) => (
           firebase.createEntry({
             category: category.value,
             level: level.value,
-            text: this.state.mde,
+            text: mde,
           })
         )}
         render={({ handleSubmit, pristine, invalid, submitting, form }) => (
@@ -40,13 +40,7 @@ class SubmitForm extends Component {
             onSubmit={(e) => {
               e.preventDefault();
               handleSubmit()
-                .then(() => { 
-                  form.reset(); 
-                  this.setState({
-                    mde: "",
-                    mdeTouched: false
-                  });
-                });
+                .then(() => form.reset());
             }}
             noValidate
           >
@@ -103,16 +97,13 @@ class SubmitForm extends Component {
               <Label>Your question</Label>
               <Field
                 name="mde"
-                validate={() => this.state.mde ? null : "Wymagane"}
-                render={({ meta, input: { onChange } }) => (
-                  <MDEWrapper error={this.state.mdeTouched && meta.error}>
+                validate={required}
+                render={({ meta, input: { value, onChange, onBlur } }) => (
+                  <MDEWrapper error={meta.touched && meta.error}>
                     <SimpleMDE
-                      onFocus={() => this.setState({ mdeTouched: true })}
-                      onChange={value => {
-                        this.setState({ mde: value });
-                        onChange(value);
-                      }}
-                      value={this.state.mde}
+                      onBlur={onBlur}
+                      onChange={onChange}
+                      value={value}
                       placeholder="Your question..."
                       options={{
                         autoDownloadFontAwesome: true,
