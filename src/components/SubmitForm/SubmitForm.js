@@ -28,19 +28,28 @@ class SubmitForm extends Component {
 
     return (
       <Form
-        onSubmit={({ category, level, text }) => (
-          // firebase.createEntry({
-          //   category: category.value,
-          //   level: level.value,
-          //   text,
-          // })
-          new Promise((resolve, reject) => {
-            console.log(this.mde.value())
-            resolve()
+        onSubmit={({ category, level }) => (
+          firebase.createEntry({
+            category: category.value,
+            level: level.value,
+            text: this.state.mde,
           })
         )}
-        render={({ handleSubmit, pristine, invalid, submitting, reset }) => (
-          <form onSubmit={(e) => e.preventDefault() || handleSubmit().then(reset)} noValidate>
+        render={({ handleSubmit, pristine, invalid, submitting, form }) => (
+          <form 
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit()
+                .then(() => { 
+                  form.reset(); 
+                  this.setState({
+                    mde: "",
+                    mdeTouched: false
+                  });
+                });
+            }}
+            noValidate
+          >
             <FieldWrapper>
               <Label>Category</Label>
               <Field
@@ -95,11 +104,14 @@ class SubmitForm extends Component {
               <Field
                 name="mde"
                 validate={() => this.state.mde ? null : "Wymagane"}
-                render={({ meta }) => (
+                render={({ meta, input: { onChange } }) => (
                   <MDEWrapper error={this.state.mdeTouched && meta.error}>
                     <SimpleMDE
                       onFocus={() => this.setState({ mdeTouched: true })}
-                      onChange={value => this.setState({ mde: value })}
+                      onChange={value => {
+                        this.setState({ mde: value });
+                        onChange(value);
+                      }}
                       value={this.state.mde}
                       placeholder="Your question..."
                       options={{
