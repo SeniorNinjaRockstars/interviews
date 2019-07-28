@@ -13,7 +13,7 @@ export const Container = styled.div`
 `
 
 export const InnerContainer = styled.div`
-  margin: 18vh 16.667%;
+  margin: 25vh 16.667% 35vh;
   position: relative;
 
   ${({ theme }) => theme.media.tablet`

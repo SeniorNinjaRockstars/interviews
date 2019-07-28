@@ -1,28 +1,36 @@
-import React from "react"
+import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { Form, Field } from "react-final-form"
-import ReCAPTCHA from "react-google-recaptcha"
+// import ReCAPTCHA from "react-google-recaptcha"
 import { withFirebase } from "../../firebase"
+import SimpleMDE from "react-simplemde-editor";
+import "easymde/dist/easymde.min.css";
 
 import Label from "../../core/Label"
-import Textarea from "../../core/Textarea"
 import Button from "../../core/Button"
 
-import { Select, FieldWrapper } from "./SubmitForm.styled"
+import { Select, FieldWrapper, MDEWrapper } from "./SubmitForm.styled"
 
 import { required } from "../../validators"
 
 const SubmitForm = ({ firebase }) => (
   <Form
-    onSubmit={({ category, level, text }) => (
+    onSubmit={({ category, level, mde }) => (
       firebase.createEntry({
         category: category.value,
         level: level.value,
-        text,
+        text: mde,
       })
     )}
-    render={({ handleSubmit, pristine, invalid, submitting, reset }) => (
-      <form onSubmit={(e) => e.preventDefault() || handleSubmit().then(reset)}>
+    render={({ handleSubmit, pristine, invalid, submitting, form }) => (
+      <form 
+        onSubmit={(e) => {
+          e.preventDefault()
+          handleSubmit()
+            .then(() => form.reset())
+        }}
+        noValidate
+      >
         <FieldWrapper>
           <Label>Category</Label>
           <Field
@@ -53,7 +61,7 @@ const SubmitForm = ({ firebase }) => (
                 {...input}
                 placeholder="Choose level..."
                 error={meta.error && meta.touched}
-                  options={[
+                options={[
                   { value: "junior", label: "Junior" },
                   { value: "regular", label: "Regular" },
                   { value: "senior", label: "Senior" }
@@ -75,17 +83,27 @@ const SubmitForm = ({ firebase }) => (
         <FieldWrapper>
           <Label>Your question</Label>
           <Field
-            name="text"
+            name="mde"
             validate={required}
-            render={({ input, meta }) => (
-              <>
-                <Textarea
-                  {...input}
+            render={({ meta, input: { value, onChange, onBlur } }) => (
+              <MDEWrapper error={meta.touched && meta.error}>
+                <SimpleMDE
+                  onBlur={onBlur}
+                  onChange={onChange}
+                  value={value}
                   placeholder="Your question..."
-                  rows={4}
-                  error={meta.error && meta.touched}
+                  options={{
+                    autoDownloadFontAwesome: true,
+                    renderingConfig: {
+                      codeSyntaxHighlighting: true,
+                    },
+                    spellChecker: false,
+                    status: false,
+                    toolbar: ["code", "quote", "unordered-list",  "ordered-list", "|", "preview", "|", "guide"],
+                  }}
                 />
-              </>
+              </MDEWrapper>
+              
             )}
           />
         </FieldWrapper>

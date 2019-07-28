@@ -1,13 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
+import ReactMarkdown from "react-markdown"
 
 import Label from "../../core/Label";
+import CodeStyle from "../../core/CodeStyle";
 
 import { CardWrapper, MainText, InfoBox, LabeledInfo, Info } from "./QuestionCard.styled"
 
 const QuestionCard = ({ text, category, level, date }) => (
   <CardWrapper>
-    <MainText>{text}</MainText>
+    <MainText>
+      <CodeStyle>
+        <ReactMarkdown source={text} />
+      </CodeStyle>
+    </MainText>
     <InfoBox>
       <LabeledInfo>
         <Label as="p">Category</Label>

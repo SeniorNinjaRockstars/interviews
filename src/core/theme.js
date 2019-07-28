@@ -30,6 +30,7 @@ const theme = {
     background: {
       primary: "#0A1723",
       secondary: "#121E2A",
+      tertiary: "#121E2A",
       base: "#0A1723",
       dark: "#000",
     },
@@ -42,6 +43,8 @@ const theme = {
     elements: {
       menu: '#fff',
       border: "rgba(255, 255, 255, 0.05)",
+      highlight: "rgba(255, 255, 255, 0.05)",
+      icon: "rgba(255, 255, 255, 0.25)",
     },
   },
   font: {

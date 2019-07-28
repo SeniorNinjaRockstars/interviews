@@ -17,7 +17,7 @@ const Textarea = styled.textarea`
   }
   
   ${({ theme, error }) => error && css`
-    box-shadow: ${({ theme }) => theme.effects.outline.error};
+    box-shadow: ${theme.effects.outline.error};
   `}
 `
 

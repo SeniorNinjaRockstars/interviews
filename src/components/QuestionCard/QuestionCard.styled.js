@@ -13,10 +13,9 @@ export const CardWrapper = styled(Card)`
 `
 
 export const MainText = styled.p`
-  color: ${({ theme }) => theme.color.text.primary};
   font-size: ${({ theme }) => theme.font.size.label.secondary};
   line-height: ${({ theme }) => theme.font.lineHeight.medium};
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 `
   
 export const InfoBox = styled.div`
