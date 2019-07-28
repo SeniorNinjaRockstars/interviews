@@ -41,6 +41,6 @@ npm start
 
 ## Screenshots
 
-![](https://github.com/SeniorNinjaRockstars/interviews/master/Screenshot-1.png)
-![](https://github.com/SeniorNinjaRockstars/interviews/master/Screenshot-2.png)
-![](https://github.com/SeniorNinjaRockstars/interviews/master/Screenshot-3.png)
+![](https://raw.githubusercontent.com/SeniorNinjaRockstars/interviews/master/Screenshot-1.png)
+![](https://raw.githubusercontent.com/SeniorNinjaRockstars/interviews/master/Screenshot-2.png)
+![](https://raw.githubusercontent.com/SeniorNinjaRockstars/interviews/master/Screenshot-3.png)
