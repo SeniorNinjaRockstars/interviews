@@ -2,6 +2,8 @@ import React from "react"
 import styled, { css, withTheme } from "styled-components"
 import ReactSelect from "react-select"
 
+import { styles } from "../../core/CodeStyle";
+
 export const Select = withTheme(
   ({ theme, error, ...props }) => (
     <ReactSelect {...props} styles={{
@@ -127,14 +129,6 @@ export const MDEWrapper = styled.div`
     background: ${({ theme }) => theme.color.background.secondary};
     padding: 10px 20px;
     
-    pre {
-      background: ${({ theme }) => theme.color.elements.highlight};
-      padding: 10px 20px;
-
-    }
-
-    p {
-      margin: 0 0 0.5em;
-    }
+    ${styles}
   }
 `
