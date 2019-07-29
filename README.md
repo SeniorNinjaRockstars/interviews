@@ -4,7 +4,7 @@ Interit is a website presenting interview questions, which let developers refres
 ## Development
 Prepare `.env.development` file basing on `.env.example`
 
-Create `firebase.json` which will be containing information about your Firebase project and also private key.
+Create `firebase.json` which will contain information about your Firebase project and private key.
 
 ```
 {
