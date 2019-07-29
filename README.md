@@ -1,5 +1,5 @@
 # Interit (previously interviews)
-Interit is a website presenting interview questions, which let developers refresh their knowledge and prepare for a job interview. The whole site is generated and served as static using Gatsby. Questions are crowdfunded, everyone can submit their idea and after a moderator approves, it will be visible after the next rebuild.
+Interit is a website presenting interview questions, which lets developers refresh their knowledge and prepare for a job interview. The whole site is generated and served as static using Gatsby. Questions are crowdfunded, everyone can submit their idea and after moderator's approval it will be visible after the next rebuild.
 
 ## Development
 Prepare `.env.development` file basing on `.env.example`
