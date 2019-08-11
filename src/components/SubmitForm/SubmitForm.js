@@ -1,7 +1,7 @@
-import React, { Component } from "react"
+import React, { useRef } from "react"
 import PropTypes from "prop-types"
 import { Form, Field } from "react-final-form"
-// import ReCAPTCHA from "react-google-recaptcha"
+import ReCAPTCHA from "react-google-recaptcha"
 import { withFirebase } from "../../firebase"
 import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
@@ -13,13 +13,16 @@ import { Select, FieldWrapper, MDEWrapper } from "./SubmitForm.styled"
 
 import { required } from "../../validators"
 
-const SubmitForm = ({ firebase }) => (
-  <Form
-    onSubmit={({ category, level, mde }) => (
+const SubmitForm = ({ firebase }) => {
+  const captchaRef = useRef();
+
+  return <Form
+    onSubmit={({ category, level, captcha, mde }) => (
       firebase.createEntry({
         category: category.value,
         level: level.value,
         text: mde,
+        captcha: captcha
       })
     )}
     render={({ handleSubmit, pristine, invalid, submitting, form }) => (
@@ -27,7 +30,10 @@ const SubmitForm = ({ firebase }) => (
         onSubmit={(e) => {
           e.preventDefault()
           handleSubmit()
-            .then(() => form.reset())
+            .then(() => {
+              captchaRef.current.reset()
+              form.reset()
+            })
         }}
         noValidate
       >
@@ -71,15 +77,6 @@ const SubmitForm = ({ firebase }) => (
           />
         </FieldWrapper>
 
-        {/* <FieldWrapper>
-          <Field
-            name="captcha"
-            render={({ input }) => (
-              <ReCAPTCHA sitekey={process.env.CAPTCHA_PUBLIC} {...input} />
-            )}
-          />
-        </FieldWrapper> */}
-
         <FieldWrapper>
           <Label>Your question</Label>
           <Field
@@ -107,13 +104,24 @@ const SubmitForm = ({ firebase }) => (
             )}
           />
         </FieldWrapper>
+
+        <FieldWrapper>
+          <Field
+            name="captcha"
+            validate={required}
+            render={({ input }) => (
+              <ReCAPTCHA ref={captchaRef} theme="dark" sitekey={process.env.CAPTCHA_PUBLIC} {...input} />
+            )}
+          />
+        </FieldWrapper>
+
         <Button as="button" type="submit" disabled={pristine || invalid || submitting}>
           Submit
         </Button>
       </form>
     )}
   />
-)
+}
 
 SubmitForm.propTypes = {
   firebase: PropTypes.object.isRequired,
