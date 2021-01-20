@@ -19,7 +19,7 @@
     "gatsby-source-filesystem": "^2.0.23",
     "gatsby-source-firestore": "^1.0.3",
     "gatsby-transformer-sharp": "^2.1.14",
-    "gsap": "^2.1.2",
+    "gsap": "^3.6.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
